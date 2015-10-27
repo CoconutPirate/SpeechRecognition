@@ -57,6 +57,8 @@ namespace SpeechRecognition
 
             Complex[] channel = signal.GetChannel(0);
 
+            Console.WriteLine(channel[0]+" "+channel[1]);
+
             //double[] power = Accord.Audio.Tools.GetPowerSpectrum(channel);
             //double[] freqv = Accord.Audio.Tools.GetFrequencyVector(signal.Length, signal.SampleRate);
 
