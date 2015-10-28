@@ -1,0 +1,49 @@
+!SpriteSheet
+Id: d2cef0fb-2c57-4129-8a54-808f77f5f3b7
+SerializedVersion: 1
+Tags: []
+Type: Sprite2D
+ColorKeyColor: {R: 255, G: 0, B: 255, A: 255}
+Format: AsIs
+Alpha: Auto
+Sprites:
+    -   Source: ../../../../../Nowy folder (2)/Big/CastleBig.png
+        Name: Idle0
+        TextureRegion: {X: 0, Y: 0, Width: 512, Height: 512}
+        Center: {X: 0, Y: 0}
+        Borders: {X: 0, Y: 0, Z: 0, W: 0}
+    -   Source: ../../../../../Nowy folder (2)/Big/CastleBig.png
+        Name: Idle1
+        TextureRegion: {X: 512, Y: 0, Width: 512, Height: 512}
+        Center: {X: 0, Y: 0}
+        Borders: {X: 0, Y: 0, Z: 0, W: 0}
+    -   Source: ../../../../../Nowy folder (2)/Big/CastleBig.png
+        Name: Work0
+        TextureRegion: {X: 0, Y: 512, Width: 512, Height: 512}
+        Center: {X: 0, Y: 0}
+        Borders: {X: 0, Y: 0, Z: 0, W: 0}
+    -   Source: ../../../../../Nowy folder (2)/Big/CastleBig.png
+        Name: Work1
+        TextureRegion: {X: 512, Y: 512, Width: 512, Height: 512}
+        Center: {X: 0, Y: 0}
+        Borders: {X: 0, Y: 0, Z: 0, W: 0}
+    -   Source: ../../../../../Nowy folder (2)/Big/CastleBig.png
+        Name: Hurt0
+        TextureRegion: {X: 0, Y: 1024, Width: 512, Height: 512}
+        Center: {X: 0, Y: 0}
+        Borders: {X: 0, Y: 0, Z: 0, W: 0}
+    -   Source: ../../../../../Nowy folder (2)/Big/CastleBig.png
+        Name: Hurt1
+        TextureRegion: {X: 512, Y: 1024, Width: 512, Height: 512}
+        Center: {X: 0, Y: 0}
+        Borders: {X: 0, Y: 0, Z: 0, W: 0}
+    -   Source: ../../../../../Nowy folder (2)/Big/CastleBig.png
+        Name: Die0
+        TextureRegion: {X: 0, Y: 1536, Width: 512, Height: 512}
+        Center: {X: 0, Y: 0}
+        Borders: {X: 0, Y: 0, Z: 0, W: 0}
+    -   Source: ../../../../../Nowy folder (2)/Big/CastleBig.png
+        Name: Die1
+        TextureRegion: {X: 512, Y: 1536, Width: 512, Height: 512}
+        Center: {X: 0, Y: 0}
+        Borders: {X: 0, Y: 0, Z: 0, W: 0}

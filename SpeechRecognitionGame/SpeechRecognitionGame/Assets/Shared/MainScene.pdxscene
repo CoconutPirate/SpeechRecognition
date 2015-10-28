@@ -1,0 +1,145 @@
+!SceneAsset
+Id: 678419ba-4420-41ec-adb8-256c04c0cb19
+SerializedVersion: 6
+Tags: []
+Hierarchy:
+    RootEntity: 45e832a2-1f1d-4b13-9b25-6a7ddf60bb9a
+    Entities:
+        -   Name: BowArrow
+            Components:
+                SpriteComponent.Key:
+                    SpriteProvider: !SpriteFromSheet
+                        Sheet: 785b96d9-e1fb-41d3-b014-2aba76f9227e:BowArrow
+                    Color: {R: 255, G: 255, B: 255, A: 255}
+                ScriptComponent.Key:
+                    Scripts:
+                        - !MyGame3.SpriteAnimator,SpeechRecognitionGame.Game
+                            Id: 0c49ae46-afd4-4c56-b9e2-f5cfd9e6c49d
+                TransformComponent.Key:
+                    Position: {X: 5, Y: 1, Z: 0}
+                    Rotation: {W: 1, X: 0, Y: 0, Z: 0}
+                    Scale: {X: 1, Y: 1, Z: 1}
+                    Children: []
+            Id: 05f09303-d5bf-4d48-a0e1-528e369ea818
+        - !Scene
+            Name: Scene
+            Components:
+                SceneComponent.Key:
+                    GraphicsCompositor: !SceneGraphicsCompositorLayers
+                        Cameras:
+                            -   Name: null
+                                Camera:
+                                    Entity: {Id: bf55bfc8-0a8a-41c0-80c8-76e0491f5162}
+                                    Component: CameraComponent.Key
+                        Layers: []
+                        Master:
+                            Name: SceneGraphicsLayer
+                            Output: !MasterRenderFrameProvider {}
+                            Renderers:
+                                - !ClearRenderFrameRenderer
+                                    Color: {R: 0.392156869, G: 0.58431375, B: 0.929411769, A: 1}
+                                    Output: !CurrentRenderFrameProvider {}
+                                - !SceneCameraRenderer
+                                    Mode: !CameraRendererModeForward {}
+                                    Camera:
+                                        Index: 0
+                                    Output: !CurrentRenderFrameProvider {}
+                                    Viewport: {X: 0, Y: 0, Width: 100, Height: 100}
+                    EditorSettings:
+                        GridColor: {R: 0.7058824, G: 0.7058824, B: 0.7058824}
+                        SceneUnit: 1
+                        Camera: {}
+                        Mode: !SceneEditorGraphicsModeLDRSettings
+                            BackgroundColor: {R: 0.196078435, G: 0.196078435, B: 0.196078435}
+                TransformComponent.Key:
+                    Position: {X: 0, Y: 0, Z: 0}
+                    Rotation: {W: 1, X: 0, Y: 0, Z: 0}
+                    Scale: {X: 1, Y: 1, Z: 1}
+                    Children:
+                        -   Entity: {Id: bf55bfc8-0a8a-41c0-80c8-76e0491f5162}
+                            Component: TransformComponent.Key
+                        -   Entity: {Id: 7dbc2070-b7ce-457e-905c-1761bca9aa7a}
+                            Component: TransformComponent.Key
+                        -   Entity: {Id: a7f70af7-0ffc-4f76-85af-07be51341da4}
+                            Component: TransformComponent.Key
+                        -   Entity: {Id: 9d3cf561-4d6a-4e70-a6eb-203887e1c753}
+                            Component: TransformComponent.Key
+                        -   Entity: {Id: 05f09303-d5bf-4d48-a0e1-528e369ea818}
+                            Component: TransformComponent.Key
+                        -   Entity: {Id: dcb5fafc-0e16-4127-a9d4-19f05b0bce29}
+                            Component: TransformComponent.Key
+            Id: 45e832a2-1f1d-4b13-9b25-6a7ddf60bb9a
+        -   Name: Castle
+            Components:
+                SpriteComponent.Key:
+                    SpriteProvider: !SpriteFromSheet
+                        Sheet: d2cef0fb-2c57-4129-8a54-808f77f5f3b7:Castle
+                    Color: {R: 255, G: 255, B: 255, A: 255}
+                ScriptComponent.Key:
+                    Scripts:
+                        - !MyGame3.SpriteAnimator,SpeechRecognitionGame.Game
+                            Id: 0c49ae46-afd4-4c56-b9e2-f5cfd9e6c49d
+                TransformComponent.Key:
+                    Position: {X: 0, Y: 0, Z: 0}
+                    Rotation: {W: 1, X: 0, Y: 0, Z: 0}
+                    Scale: {X: 1, Y: 1, Z: 1}
+                    Children: []
+            Id: 7dbc2070-b7ce-457e-905c-1761bca9aa7a
+        -   Name: Sword
+            Components:
+                SpriteComponent.Key:
+                    SpriteProvider: !SpriteFromSheet
+                        Sheet: cd0c7fda-174f-45af-937c-25c8e197f934:Sword
+                    Color: {R: 255, G: 255, B: 255, A: 255}
+                ScriptComponent.Key:
+                    Scripts:
+                        - !MyGame3.SpriteAnimator,SpeechRecognitionGame.Game
+                            Id: 0c49ae46-afd4-4c56-b9e2-f5cfd9e6c49d
+                TransformComponent.Key:
+                    Position: {X: -5, Y: 1, Z: 0}
+                    Rotation: {W: 1, X: 0, Y: 0, Z: 0}
+                    Scale: {X: 1, Y: 1, Z: 1}
+                    Children: []
+            Id: 9d3cf561-4d6a-4e70-a6eb-203887e1c753
+        -   Name: Pickaxe
+            Components:
+                SpriteComponent.Key:
+                    SpriteProvider: !SpriteFromSheet
+                        Sheet: b3bbc10c-7ed1-4e7b-b35f-6d4ea6e60376:Pickaxe
+                    Color: {R: 255, G: 255, B: 255, A: 255}
+                ScriptComponent.Key:
+                    Scripts:
+                        - !MyGame3.SpriteAnimator,SpeechRecognitionGame.Game
+                            Id: 0c49ae46-afd4-4c56-b9e2-f5cfd9e6c49d
+                TransformComponent.Key:
+                    Position: {X: -5, Y: -1, Z: 0}
+                    Rotation: {W: 1, X: 0, Y: 0, Z: 0}
+                    Scale: {X: 1, Y: 1, Z: 1}
+                    Children: []
+            Id: a7f70af7-0ffc-4f76-85af-07be51341da4
+        -   Name: Camera
+            Components:
+                CameraComponent.Key:
+                    Projection: Orthographic
+                TransformComponent.Key:
+                    Position: {X: 0, Y: 0, Z: 10}
+                    Rotation: {W: 1, X: 0, Y: 0, Z: 0}
+                    Scale: {X: 1, Y: 1, Z: 1}
+                    Children: []
+            Id: bf55bfc8-0a8a-41c0-80c8-76e0491f5162
+        -   Name: Wand
+            Components:
+                SpriteComponent.Key:
+                    SpriteProvider: !SpriteFromSheet
+                        Sheet: 642e55c2-bc21-457f-9a1d-3fe750f38af1:Wand
+                    Color: {R: 255, G: 255, B: 255, A: 255}
+                ScriptComponent.Key:
+                    Scripts:
+                        - !MyGame3.SpriteAnimator,SpeechRecognitionGame.Game
+                            Id: 0c49ae46-afd4-4c56-b9e2-f5cfd9e6c49d
+                TransformComponent.Key:
+                    Position: {X: 5, Y: -1, Z: 0}
+                    Rotation: {W: 1, X: 0, Y: 0, Z: 0}
+                    Scale: {X: 1, Y: 1, Z: 1}
+                    Children: []
+            Id: dcb5fafc-0e16-4127-a9d4-19f05b0bce29

@@ -1,0 +1,49 @@
+!Package
+Id: c7312d6b-595e-4620-bdc5-3d321954d3d5
+Tags: []
+Meta:
+    Name: SpeechRecognitionGame
+    Version: 1.0.0.0
+    Authors: []
+    Owners: []
+    RootNamespace: SpeechRecognitionGame
+    Dependencies:
+        -   Name: Paradox
+            Version: 1.2.2-beta
+LocalDependencies: []
+Profiles:
+    -   Name: Shared
+        Platform: Shared
+        InheritProfiles: []
+        AssetFolders:
+            -   Path: Assets/Shared
+                RawImports: []
+            -   Path: SpeechRecognitionGame.Game/Effects
+                RawImports: []
+        OutputGroupDirectories: {}
+        Properties:
+            GameSettingsAsset.BackBufferHeight: 720
+            GameSettingsAsset.BackBufferWidth: 1280
+            GameSettingsAsset.DefaultGraphicsProfile: Level_10_0
+            GameSettingsAsset.DefaultScene: 678419ba-4420-41ec-adb8-256c04c0cb19:MainScene
+            Paradox.DisplayOrientation: LandscapeRight
+        ProjectReferences:
+            -   Id: eb97de60-9e30-4915-8744-c54f5d9c69c8
+                Location: SpeechRecognitionGame.Game/SpeechRecognitionGame.Game.csproj
+                Type: Library
+    -   Name: Windows
+        Platform: Windows
+        InheritProfiles: []
+        AssetFolders:
+            -   Path: Assets/Windows
+                RawImports: []
+        OutputGroupDirectories: {}
+        Properties:
+            Paradox.GraphicsPlatform: Direct3D11
+        ProjectReferences:
+            -   Id: 5950f946-0862-49aa-ab5a-ab6d26c6c8b0
+                Location: SpeechRecognitionGame.Windows/SpeechRecognitionGame.Windows.csproj
+                Type: Executable
+ExplicitFolders: []
+Bundles: []
+TemplateFolders: []
