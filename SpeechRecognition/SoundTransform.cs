@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using Accord.Audio;
@@ -9,11 +11,13 @@ namespace SpeechRecognition
 {
     public class SoundTransform
     {
-        private static IAudioSource source;
-        private static IWindow window;
+        private IAudioSource source;
+        private IWindow window;
+        public IList<Complex[]> ListOfFfTedSamples;
 
         public void ListenForCommands(object sender, EventArgs e)
         {
+            ListOfFfTedSamples = new List<Complex[]>();
 
             var audioDevices = new AudioDeviceCollection(AudioDeviceCategory.Capture).First();
 
@@ -29,6 +33,8 @@ namespace SpeechRecognition
 
             // Start it!
             source.Start();
+
+            //return _listOfFfTedSamples;
         }
 
         void source_AudioSourceError(object sender, AudioSourceErrorEventArgs e)
@@ -56,8 +62,8 @@ namespace SpeechRecognition
             // related frequency vector to plot our spectrometer.
 
             Complex[] channel = signal.GetChannel(0);
-
-            Console.WriteLine(channel[0]+" "+channel[1]);
+            ListOfFfTedSamples.Add(channel);
+            //Console.WriteLine(channel[0]+" "+channel[1]);
 
             //double[] power = Accord.Audio.Tools.GetPowerSpectrum(channel);
             //double[] freqv = Accord.Audio.Tools.GetFrequencyVector(signal.Length, signal.SampleRate);
