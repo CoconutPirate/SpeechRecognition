@@ -8,13 +8,13 @@ Hierarchy:
         -   Name: BowArrow
             Components:
                 SpriteComponent.Key:
+                    Enabled: false
                     SpriteProvider: !SpriteFromSheet
                         Sheet: 785b96d9-e1fb-41d3-b014-2aba76f9227e:BowArrow
                     Color: {R: 255, G: 255, B: 255, A: 255}
                 ScriptComponent.Key:
                     Scripts:
-                        - !MyGame3.SpriteAnimator,SpeechRecognitionGame.Game
-                            Id: 0c49ae46-afd4-4c56-b9e2-f5cfd9e6c49d
+                        - null
                 TransformComponent.Key:
                     Position: {X: 5, Y: 1, Z: 0}
                     Rotation: {W: 1, X: 0, Y: 0, Z: 0}
@@ -68,7 +68,25 @@ Hierarchy:
                             Component: TransformComponent.Key
                         -   Entity: {Id: dcb5fafc-0e16-4127-a9d4-19f05b0bce29}
                             Component: TransformComponent.Key
+                        -   Entity: {Id: 7a9706cf-f86f-461e-beb1-1850860c4340}
+                            Component: TransformComponent.Key
             Id: 45e832a2-1f1d-4b13-9b25-6a7ddf60bb9a
+        -   Name: UI
+            Components:
+                UIComponent.Key:
+                    VirtualResolution: {X: 1280, Y: 720, Z: 1000}
+                ScriptComponent.Key:
+                    Scripts:
+                        - !SpeechRecognitionGame.UIStart,SpeechRecognitionGame.Game
+                            Id: 0e355e70-4279-459a-915e-efe3ee27f3a1
+                        - !SpeechRecognitionGame.UIScript,SpeechRecognitionGame.Game
+                            Id: e058f532-67f6-451f-b766-247cca77e35f
+                TransformComponent.Key:
+                    Position: {X: 0, Y: 0, Z: 0}
+                    Rotation: {W: 1, X: 0, Y: 0, Z: 0}
+                    Scale: {X: 1, Y: 1, Z: 1}
+                    Children: []
+            Id: 7a9706cf-f86f-461e-beb1-1850860c4340
         -   Name: Castle
             Components:
                 SpriteComponent.Key:
@@ -77,8 +95,8 @@ Hierarchy:
                     Color: {R: 255, G: 255, B: 255, A: 255}
                 ScriptComponent.Key:
                     Scripts:
-                        - !MyGame3.SpriteAnimator,SpeechRecognitionGame.Game
-                            Id: 0c49ae46-afd4-4c56-b9e2-f5cfd9e6c49d
+                        - !SpeechRecognitionGame.CastleController,SpeechRecognitionGame.Game
+                            Id: f475bdb5-6a91-4359-8677-0a193bd4299a
                 TransformComponent.Key:
                     Position: {X: 0, Y: 0, Z: 0}
                     Rotation: {W: 1, X: 0, Y: 0, Z: 0}
@@ -88,13 +106,13 @@ Hierarchy:
         -   Name: Sword
             Components:
                 SpriteComponent.Key:
+                    Enabled: false
                     SpriteProvider: !SpriteFromSheet
                         Sheet: cd0c7fda-174f-45af-937c-25c8e197f934:Sword
                     Color: {R: 255, G: 255, B: 255, A: 255}
                 ScriptComponent.Key:
                     Scripts:
-                        - !MyGame3.SpriteAnimator,SpeechRecognitionGame.Game
-                            Id: 0c49ae46-afd4-4c56-b9e2-f5cfd9e6c49d
+                        - null
                 TransformComponent.Key:
                     Position: {X: -5, Y: 1, Z: 0}
                     Rotation: {W: 1, X: 0, Y: 0, Z: 0}
@@ -104,13 +122,13 @@ Hierarchy:
         -   Name: Pickaxe
             Components:
                 SpriteComponent.Key:
+                    Enabled: false
                     SpriteProvider: !SpriteFromSheet
                         Sheet: b3bbc10c-7ed1-4e7b-b35f-6d4ea6e60376:Pickaxe
                     Color: {R: 255, G: 255, B: 255, A: 255}
                 ScriptComponent.Key:
                     Scripts:
-                        - !MyGame3.SpriteAnimator,SpeechRecognitionGame.Game
-                            Id: 0c49ae46-afd4-4c56-b9e2-f5cfd9e6c49d
+                        - null
                 TransformComponent.Key:
                     Position: {X: -5, Y: -1, Z: 0}
                     Rotation: {W: 1, X: 0, Y: 0, Z: 0}
@@ -130,13 +148,13 @@ Hierarchy:
         -   Name: Wand
             Components:
                 SpriteComponent.Key:
+                    Enabled: false
                     SpriteProvider: !SpriteFromSheet
                         Sheet: 642e55c2-bc21-457f-9a1d-3fe750f38af1:Wand
                     Color: {R: 255, G: 255, B: 255, A: 255}
                 ScriptComponent.Key:
                     Scripts:
-                        - !MyGame3.SpriteAnimator,SpeechRecognitionGame.Game
-                            Id: 0c49ae46-afd4-4c56-b9e2-f5cfd9e6c49d
+                        - null
                 TransformComponent.Key:
                     Position: {X: 5, Y: -1, Z: 0}
                     Rotation: {W: 1, X: 0, Y: 0, Z: 0}
