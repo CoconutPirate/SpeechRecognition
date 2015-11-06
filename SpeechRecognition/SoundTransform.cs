@@ -13,11 +13,13 @@ namespace SpeechRecognition
     {
         private IAudioSource source;
         private IWindow window;
-        public IList<Complex[]> ListOfFfTedSamples;
+        public IList<double[]> ListOfPowerSpectrum;
+        public IList<int> soundsDetectedIndexes;
 
         public void ListenForCommands(object sender, EventArgs e)
         {
-            ListOfFfTedSamples = new List<Complex[]>();
+            ListOfPowerSpectrum = new List<double[]>();
+            soundsDetectedIndexes = new List<int>();
 
             var audioDevices = new AudioDeviceCollection(AudioDeviceCategory.Capture).First();
 
@@ -31,6 +33,8 @@ namespace SpeechRecognition
             source.NewFrame += source_NewFrame;
             source.AudioSourceError += source_AudioSourceError;
 
+
+            Console.WriteLine("Start");
             // Start it!
             source.Start();
 
@@ -62,16 +66,27 @@ namespace SpeechRecognition
             // related frequency vector to plot our spectrometer.
 
             Complex[] channel = signal.GetChannel(0);
-            ListOfFfTedSamples.Add(channel);
+            
             //Console.WriteLine(channel[0]+" "+channel[1]);
 
-            //double[] power = Accord.Audio.Tools.GetPowerSpectrum(channel);
+            double[] power = Accord.Audio.Tools.GetPowerSpectrum(channel);
             //double[] freqv = Accord.Audio.Tools.GetFrequencyVector(signal.Length, signal.SampleRate);
 
             //power[0] = 0; // zero DC
             //float[] g = new float[power.Length];
-            //for (int i = 0; i < power.Length; i++)
-            //    g[i] = (float)power[i];
+            //for (int i = 0; i < power.Length; i++)           
+                //g[i] = (float) power[i];
+                                
+            ListOfPowerSpectrum.Add(power);
+
+            foreach (double value in power)
+            {
+                if (value != 0.0 && value > 1.0E-10)
+                { 
+                    soundsDetectedIndexes.Add(ListOfPowerSpectrum.IndexOf(power));
+                    break;
+                }
+            }
 
             //// Adjust the zoom according to the horizontal and vertical scrollbars.
             //chart1.RangeX = new DoubleRange(freqv[0], freqv[freqv.Length - 1] / hScrollBar1.Value);
