@@ -7,162 +7,162 @@ ColorKeyColor: {R: 255, G: 0, B: 255, A: 255}
 Format: AsIs
 Alpha: Auto
 Sprites:
-    -   Source: ../../../../../Nowy folder (2)/Big/BowArrowBig.png
+    -   Source: BowArrowBig.png
         Name: IdleRight0
         TextureRegion: {X: 0, Y: 0, Width: 128, Height: 128}
         Center: {X: 0, Y: 0}
         Borders: {X: 0, Y: 0, Z: 0, W: 0}
-    -   Source: ../../../../../Nowy folder (2)/Big/BowArrowBig.png
+    -   Source: BowArrowBig.png
         Name: IdleRight1
         TextureRegion: {X: 128, Y: 0, Width: 128, Height: 128}
         Center: {X: 0, Y: 0}
         Borders: {X: 0, Y: 0, Z: 0, W: 0}
-    -   Source: ../../../../../Nowy folder (2)/Big/BowArrowBig.png
+    -   Source: BowArrowBig.png
         Name: IdleRight2
         TextureRegion: {X: 256, Y: 0, Width: 128, Height: 128}
         Center: {X: 0, Y: 0}
         Borders: {X: 0, Y: 0, Z: 0, W: 0}
-    -   Source: ../../../../../Nowy folder (2)/Big/BowArrowBig.png
+    -   Source: BowArrowBig.png
         Name: IdleRight3
         TextureRegion: {X: 384, Y: 0, Width: 128, Height: 128}
         Center: {X: 0, Y: 0}
         Borders: {X: 0, Y: 0, Z: 0, W: 0}
-    -   Source: ../../../../../Nowy folder (2)/Big/BowArrowBig.png
+    -   Source: BowArrowBig.png
         Name: WalkRight0
         TextureRegion: {X: 0, Y: 128, Width: 128, Height: 128}
         Center: {X: 0, Y: 0}
         Borders: {X: 0, Y: 0, Z: 0, W: 0}
-    -   Source: ../../../../../Nowy folder (2)/Big/BowArrowBig.png
+    -   Source: BowArrowBig.png
         Name: WalkRight1
         TextureRegion: {X: 128, Y: 128, Width: 128, Height: 128}
         Center: {X: 0, Y: 0}
         Borders: {X: 0, Y: 0, Z: 0, W: 0}
-    -   Source: ../../../../../Nowy folder (2)/Big/BowArrowBig.png
+    -   Source: BowArrowBig.png
         Name: WalkRight2
         TextureRegion: {X: 256, Y: 128, Width: 128, Height: 128}
         Center: {X: 0, Y: 0}
         Borders: {X: 0, Y: 0, Z: 0, W: 0}
-    -   Source: ../../../../../Nowy folder (2)/Big/BowArrowBig.png
+    -   Source: BowArrowBig.png
         Name: WalkRight3
         TextureRegion: {X: 384, Y: 128, Width: 128, Height: 128}
         Center: {X: 0, Y: 0}
         Borders: {X: 0, Y: 0, Z: 0, W: 0}
-    -   Source: ../../../../../Nowy folder (2)/Big/BowArrowBig.png
+    -   Source: BowArrowBig.png
         Name: AttackRight0
         TextureRegion: {X: 0, Y: 256, Width: 128, Height: 128}
         Center: {X: 0, Y: 0}
         Borders: {X: 0, Y: 0, Z: 0, W: 0}
-    -   Source: ../../../../../Nowy folder (2)/Big/BowArrowBig.png
+    -   Source: BowArrowBig.png
         Name: AttackRight1
         TextureRegion: {X: 128, Y: 256, Width: 128, Height: 128}
         Center: {X: 0, Y: 0}
         Borders: {X: 0, Y: 0, Z: 0, W: 0}
-    -   Source: ../../../../../Nowy folder (2)/Big/BowArrowBig.png
+    -   Source: BowArrowBig.png
         Name: AttackRight2
         TextureRegion: {X: 256, Y: 256, Width: 128, Height: 128}
         Center: {X: 0, Y: 0}
         Borders: {X: 0, Y: 0, Z: 0, W: 0}
-    -   Source: ../../../../../Nowy folder (2)/Big/BowArrowBig.png
+    -   Source: BowArrowBig.png
         Name: AttackRight3
         TextureRegion: {X: 384, Y: 256, Width: 128, Height: 128}
         Center: {X: 0, Y: 0}
         Borders: {X: 0, Y: 0, Z: 0, W: 0}
-    -   Source: ../../../../../Nowy folder (2)/Big/BowArrowBig.png
+    -   Source: BowArrowBig.png
         Name: DieRight0
         TextureRegion: {X: 0, Y: 384, Width: 128, Height: 128}
         Center: {X: 0, Y: 0}
         Borders: {X: 0, Y: 0, Z: 0, W: 0}
-    -   Source: ../../../../../Nowy folder (2)/Big/BowArrowBig.png
+    -   Source: BowArrowBig.png
         Name: DieRight1
         TextureRegion: {X: 128, Y: 384, Width: 128, Height: 128}
         Center: {X: 0, Y: 0}
         Borders: {X: 0, Y: 0, Z: 0, W: 0}
-    -   Source: ../../../../../Nowy folder (2)/Big/BowArrowBig.png
+    -   Source: BowArrowBig.png
         Name: DieRight2
         TextureRegion: {X: 256, Y: 384, Width: 128, Height: 128}
         Center: {X: 0, Y: 0}
         Borders: {X: 0, Y: 0, Z: 0, W: 0}
-    -   Source: ../../../../../Nowy folder (2)/Big/BowArrowBig.png
+    -   Source: BowArrowBig.png
         Name: DieRight3
         TextureRegion: {X: 384, Y: 384, Width: 128, Height: 128}
         Center: {X: 0, Y: 0}
         Borders: {X: 0, Y: 0, Z: 0, W: 0}
-    -   Source: ../../../../../Nowy folder (2)/Big/BowArrowBig.png
+    -   Source: BowArrowBig.png
         Name: IdleLeft0
         TextureRegion: {X: 0, Y: 512, Width: 128, Height: 128}
         Center: {X: 0, Y: 0}
         Borders: {X: 0, Y: 0, Z: 0, W: 0}
-    -   Source: ../../../../../Nowy folder (2)/Big/BowArrowBig.png
+    -   Source: BowArrowBig.png
         Name: IdleLeft1
         TextureRegion: {X: 128, Y: 512, Width: 128, Height: 128}
         Center: {X: 0, Y: 0}
         Borders: {X: 0, Y: 0, Z: 0, W: 0}
-    -   Source: ../../../../../Nowy folder (2)/Big/BowArrowBig.png
+    -   Source: BowArrowBig.png
         Name: IdleLeft2
         TextureRegion: {X: 256, Y: 512, Width: 128, Height: 128}
         Center: {X: 0, Y: 0}
         Borders: {X: 0, Y: 0, Z: 0, W: 0}
-    -   Source: ../../../../../Nowy folder (2)/Big/BowArrowBig.png
+    -   Source: BowArrowBig.png
         Name: IdleLeft3
         TextureRegion: {X: 384, Y: 512, Width: 128, Height: 128}
         Center: {X: 0, Y: 0}
         Borders: {X: 0, Y: 0, Z: 0, W: 0}
-    -   Source: ../../../../../Nowy folder (2)/Big/BowArrowBig.png
+    -   Source: BowArrowBig.png
         Name: WalkLeft0
         TextureRegion: {X: 0, Y: 649, Width: 128, Height: 128}
         Center: {X: 0, Y: 0}
         Borders: {X: 0, Y: 0, Z: 0, W: 0}
-    -   Source: ../../../../../Nowy folder (2)/Big/BowArrowBig.png
+    -   Source: BowArrowBig.png
         Name: WalkLeft1
         TextureRegion: {X: 128, Y: 640, Width: 128, Height: 128}
         Center: {X: 0, Y: 0}
         Borders: {X: 0, Y: 0, Z: 0, W: 0}
-    -   Source: ../../../../../Nowy folder (2)/Big/BowArrowBig.png
+    -   Source: BowArrowBig.png
         Name: WalkLeft2
         TextureRegion: {X: 256, Y: 640, Width: 128, Height: 128}
         Center: {X: 0, Y: 0}
         Borders: {X: 0, Y: 0, Z: 0, W: 0}
-    -   Source: ../../../../../Nowy folder (2)/Big/BowArrowBig.png
+    -   Source: BowArrowBig.png
         Name: WalkLeft3
         TextureRegion: {X: 384, Y: 640, Width: 128, Height: 128}
         Center: {X: 0, Y: 0}
         Borders: {X: 0, Y: 0, Z: 0, W: 0}
-    -   Source: ../../../../../Nowy folder (2)/Big/BowArrowBig.png
+    -   Source: BowArrowBig.png
         Name: AttackLeft0
         TextureRegion: {X: 0, Y: 768, Width: 128, Height: 128}
         Center: {X: 0, Y: 0}
         Borders: {X: 0, Y: 0, Z: 0, W: 0}
-    -   Source: ../../../../../Nowy folder (2)/Big/BowArrowBig.png
+    -   Source: BowArrowBig.png
         Name: AttackLeft1
         TextureRegion: {X: 128, Y: 768, Width: 128, Height: 128}
         Center: {X: 0, Y: 0}
         Borders: {X: 0, Y: 0, Z: 0, W: 0}
-    -   Source: ../../../../../Nowy folder (2)/Big/BowArrowBig.png
+    -   Source: BowArrowBig.png
         Name: AttackLeft2
         TextureRegion: {X: 256, Y: 768, Width: 128, Height: 128}
         Center: {X: 0, Y: 0}
         Borders: {X: 0, Y: 0, Z: 0, W: 0}
-    -   Source: ../../../../../Nowy folder (2)/Big/BowArrowBig.png
+    -   Source: BowArrowBig.png
         Name: AttackLeft3
         TextureRegion: {X: 384, Y: 768, Width: 128, Height: 128}
         Center: {X: 0, Y: 0}
         Borders: {X: 0, Y: 0, Z: 0, W: 0}
-    -   Source: ../../../../../Nowy folder (2)/Big/BowArrowBig.png
+    -   Source: BowArrowBig.png
         Name: DieLeft0
         TextureRegion: {X: 0, Y: 896, Width: 128, Height: 128}
         Center: {X: 0, Y: 0}
         Borders: {X: 0, Y: 0, Z: 0, W: 0}
-    -   Source: ../../../../../Nowy folder (2)/Big/BowArrowBig.png
+    -   Source: BowArrowBig.png
         Name: DieLeft1
         TextureRegion: {X: 128, Y: 896, Width: 128, Height: 128}
         Center: {X: 0, Y: 0}
         Borders: {X: 0, Y: 0, Z: 0, W: 0}
-    -   Source: ../../../../../Nowy folder (2)/Big/BowArrowBig.png
+    -   Source: BowArrowBig.png
         Name: DieLeft2
         TextureRegion: {X: 256, Y: 896, Width: 128, Height: 128}
         Center: {X: 0, Y: 0}
         Borders: {X: 0, Y: 0, Z: 0, W: 0}
-    -   Source: ../../../../../Nowy folder (2)/Big/BowArrowBig.png
+    -   Source: BowArrowBig.png
         Name: DieLeft3
         TextureRegion: {X: 384, Y: 896, Width: 128, Height: 128}
         Center: {X: 0, Y: 0}
