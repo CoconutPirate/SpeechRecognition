@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Numerics;
 using System.Threading;
 using System.Threading.Tasks;
 using NUnit.Framework;
@@ -24,17 +22,75 @@ namespace SpeechRecognition.Tests
         }
 
         [Test]
+        public void CalibrationAndRecognition()
+        {
+            var goCommand = GetCommand(@"Powiedz ""idz"" ");
+            var attackCommand = GetCommand(@"Powiedz ""atak"" ");
+            var defendCommand = GetCommand(@"Powiedz ""obrona"" ");
+
+            //var supportVectorMachineGo = SupportVectorMachine.FromWeights(goCommand.ToArray());
+            //var supportVectorMachineAttack = SupportVectorMachine.FromWeights(attackCommand.ToArray());
+            //var supportVectorMachineDefend = SupportVectorMachine.FromWeights(defendCommand.ToArray());
+            // todo: HMM here
+
+            var enumerable = GetCommand(@"Powiedz jakas komende");
+
+        }
+
+        private IEnumerable<double> GetCommand(string commandSaid)
+        {
+            Console.WriteLine(commandSaid);
+            var soundTransformIdz = RunTaskForNSec(4);
+
+            var complexses = soundTransformIdz.ListOfPowerSpectrum;
+
+            var soundsDetectedInWords = new List<int>();
+            var soundsDetectedIndexes = soundTransformIdz.soundsDetectedIndexes;
+
+            var soundsDetectedInWord = 0;
+
+            var doubles = new List<double>();
+
+            for (var i = 0; i < soundsDetectedIndexes.Count; i++)
+            {
+                int soundsDetectedInWave = 0;
+                foreach (double value in complexses[soundsDetectedIndexes[i]])
+                {
+                    if (value != 0.0 && value > 1.0E-10)
+                    {
+                        soundsDetectedInWave++;
+                        doubles.Add(value);
+                    }
+                }
+
+                soundsDetectedInWord += soundsDetectedInWave;
+
+                // Detect next word when reach the end of loop or following index value is not next to previous one   
+                if ((i + 1) == soundsDetectedIndexes.Count || soundsDetectedIndexes[i + 1] != soundsDetectedIndexes[i] + 1)
+                {
+                    // It should have at least 10 sounds to be treated as word 
+                    if (soundsDetectedInWord > 10)
+                    {
+                        soundsDetectedInWords.Add(soundsDetectedInWord);
+                    }
+                    soundsDetectedInWord = 0;
+                }
+            }
+            return doubles;
+        }
+
+        [Test]
         public void TestingProblem()
         {
             var soundTransform = RunTaskForNSec(10);
-            IList<double[]> complexses= soundTransform.ListOfPowerSpectrum;
+            var complexses= soundTransform.ListOfPowerSpectrum;
 
-            IList<int> soundsDetectedInWords = new List<int>();
-            IList<int> soundsDetectedIndexes = soundTransform.soundsDetectedIndexes;
+            var soundsDetectedInWords = new List<int>();
+            var soundsDetectedIndexes = soundTransform.soundsDetectedIndexes;
 
-            int soundsDetectedInWord = 0;
+            var soundsDetectedInWord = 0;
               
-            for (int i = 0; i < soundsDetectedIndexes.Count; i++)
+            for (var i = 0; i < soundsDetectedIndexes.Count; i++)
             {
                 int soundsDetectedInWave = 0;
                 foreach (double value in complexses[soundsDetectedIndexes[i]])
