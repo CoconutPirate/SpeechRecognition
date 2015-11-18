@@ -5,17 +5,15 @@ Tags: []
 Hierarchy:
     RootEntity: 45e832a2-1f1d-4b13-9b25-6a7ddf60bb9a
     Entities:
-        -   Name: BowArrow
+        -   Name: BowArrowTemplate
             Components:
                 SpriteComponent.Key:
                     Enabled: false
                     SpriteProvider: !SpriteFromSheet
                         Sheet: 785b96d9-e1fb-41d3-b014-2aba76f9227e:BowArrow
                     Color: {R: 255, G: 255, B: 255, A: 255}
-                ScriptComponent.Key:
-                    Scripts:
-                        - null
                 TransformComponent.Key:
+                    Enabled: false
                     Position: {X: 5, Y: 1, Z: 0}
                     Rotation: {W: 1, X: 0, Y: 0, Z: 0}
                     Scale: {X: 1, Y: 1, Z: 1}
@@ -60,6 +58,8 @@ Hierarchy:
                             Component: TransformComponent.Key
                         -   Entity: {Id: 7dbc2070-b7ce-457e-905c-1761bca9aa7a}
                             Component: TransformComponent.Key
+                        -   Entity: {Id: 943450c3-7a21-47c3-8af8-7db39b9be580}
+                            Component: TransformComponent.Key
                         -   Entity: {Id: a7f70af7-0ffc-4f76-85af-07be51341da4}
                             Component: TransformComponent.Key
                         -   Entity: {Id: 9d3cf561-4d6a-4e70-a6eb-203887e1c753}
@@ -75,6 +75,7 @@ Hierarchy:
             Components:
                 UIComponent.Key:
                     VirtualResolution: {X: 1280, Y: 720, Z: 1000}
+                    VirtualResolutionMode: FixedWidthFixedHeight
                 ScriptComponent.Key:
                     Scripts:
                         - !SpeechRecognitionGame.UIStart,SpeechRecognitionGame.Game
@@ -97,39 +98,69 @@ Hierarchy:
                     Scripts:
                         - !SpeechRecognitionGame.CastleController,SpeechRecognitionGame.Game
                             Id: f475bdb5-6a91-4359-8677-0a193bd4299a
+                            bowArrows: 0
+                            enemy: EnemyCastle
+                            gold: 100
+                            health: 1000
+                            pickaxes: 0
+                            side: null
+                            swords: 0
+                            units: 0
+                            wands: 0
                 TransformComponent.Key:
                     Position: {X: 0, Y: 0, Z: 0}
                     Rotation: {W: 1, X: 0, Y: 0, Z: 0}
                     Scale: {X: 1, Y: 1, Z: 1}
                     Children: []
             Id: 7dbc2070-b7ce-457e-905c-1761bca9aa7a
-        -   Name: Sword
+        -   Name: EnemyCastle
+            Components:
+                SpriteComponent.Key:
+                    SpriteProvider: !SpriteFromSheet
+                        Sheet: d2cef0fb-2c57-4129-8a54-808f77f5f3b7:Castle
+                    Color: {R: 255, G: 255, B: 255, A: 255}
+                ScriptComponent.Key:
+                    Scripts:
+                        - !SpeechRecognitionGame.EnemyCastleController,SpeechRecognitionGame.Game
+                            Id: 7d88f9f4-285f-4574-be63-e9c4830e5058
+                            bowArrows: 0
+                            enemy: Castle
+                            gold: 100
+                            health: 1000
+                            pickaxes: 0
+                            side: Enemy
+                            swords: 0
+                            units: 0
+                            wands: 0
+                TransformComponent.Key:
+                    Position: {X: 40, Y: 0, Z: 0}
+                    Rotation: {W: 1, X: 0, Y: 0, Z: 0}
+                    Scale: {X: 1, Y: 1, Z: 1}
+                    Children: []
+            Id: 943450c3-7a21-47c3-8af8-7db39b9be580
+        -   Name: SwordTemplate
             Components:
                 SpriteComponent.Key:
                     Enabled: false
                     SpriteProvider: !SpriteFromSheet
                         Sheet: cd0c7fda-174f-45af-937c-25c8e197f934:Sword
                     Color: {R: 255, G: 255, B: 255, A: 255}
-                ScriptComponent.Key:
-                    Scripts:
-                        - null
                 TransformComponent.Key:
+                    Enabled: false
                     Position: {X: -5, Y: 1, Z: 0}
                     Rotation: {W: 1, X: 0, Y: 0, Z: 0}
                     Scale: {X: 1, Y: 1, Z: 1}
                     Children: []
             Id: 9d3cf561-4d6a-4e70-a6eb-203887e1c753
-        -   Name: Pickaxe
+        -   Name: PickaxeTemplate
             Components:
                 SpriteComponent.Key:
                     Enabled: false
                     SpriteProvider: !SpriteFromSheet
                         Sheet: b3bbc10c-7ed1-4e7b-b35f-6d4ea6e60376:Pickaxe
                     Color: {R: 255, G: 255, B: 255, A: 255}
-                ScriptComponent.Key:
-                    Scripts:
-                        - null
                 TransformComponent.Key:
+                    Enabled: false
                     Position: {X: -5, Y: -1, Z: 0}
                     Rotation: {W: 1, X: 0, Y: 0, Z: 0}
                     Scale: {X: 1, Y: 1, Z: 1}
@@ -139,23 +170,25 @@ Hierarchy:
             Components:
                 CameraComponent.Key:
                     Projection: Orthographic
+                ScriptComponent.Key:
+                    Scripts:
+                        - !SpeechRecognitionGame.CameraController,SpeechRecognitionGame.Game
+                            Id: 41197f46-59d1-4d78-90c2-1431fcbbaf71
                 TransformComponent.Key:
                     Position: {X: 0, Y: 0, Z: 10}
                     Rotation: {W: 1, X: 0, Y: 0, Z: 0}
                     Scale: {X: 1, Y: 1, Z: 1}
                     Children: []
             Id: bf55bfc8-0a8a-41c0-80c8-76e0491f5162
-        -   Name: Wand
+        -   Name: WandTemplate
             Components:
                 SpriteComponent.Key:
                     Enabled: false
                     SpriteProvider: !SpriteFromSheet
                         Sheet: 642e55c2-bc21-457f-9a1d-3fe750f38af1:Wand
                     Color: {R: 255, G: 255, B: 255, A: 255}
-                ScriptComponent.Key:
-                    Scripts:
-                        - null
                 TransformComponent.Key:
+                    Enabled: false
                     Position: {X: 5, Y: -1, Z: 0}
                     Rotation: {W: 1, X: 0, Y: 0, Z: 0}
                     Scale: {X: 1, Y: 1, Z: 1}
