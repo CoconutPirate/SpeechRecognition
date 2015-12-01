@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Linq;
+using SiliconStudio.Paradox.Engine;
+using SiliconStudio.Paradox.Extensions;
 
 namespace SpeechRecognitionGame
 {
@@ -12,6 +15,31 @@ namespace SpeechRecognitionGame
             {
                 base.Update();
                 RandomUnit();
+            }
+            else if (Game.IsRunning && dead)
+            {
+                Victory();
+            }
+        }
+
+        void Victory()
+        {
+            SpriteComponent spriteComponent;
+            foreach (Entity entity in SceneSystem.SceneInstance.Scene.GetChildren())
+            {
+                spriteComponent = entity.Components.Get<SpriteComponent>(SpriteComponent.Key);
+                if (spriteComponent != null)
+                {
+                    spriteComponent.Enabled = false;
+                }
+            }
+            Entity ui = (from entities in SceneSystem.SceneInstance where entities.Name == "UI" select entities).FirstOrDefault();
+            ui.Components.Get<UIComponent>(UIComponent.Key).Enabled = false;
+            Entity victory = (from entities in SceneSystem.SceneInstance where entities.Name == "Victory" select entities).FirstOrDefault();
+            Entity defeat = (from entities in SceneSystem.SceneInstance where entities.Name == "Defeat" select entities).FirstOrDefault();
+            if (!defeat.Components.Get<BackgroundComponent>(BackgroundComponent.Key).Enabled)
+            {
+                victory.Components.Get<BackgroundComponent>(BackgroundComponent.Key).Enabled = true;
             }
         }
 
@@ -48,7 +76,7 @@ namespace SpeechRecognitionGame
                             return;
                         }
                         position = 1.5f;
-                        distance = 22;
+                        distance = 23;
                         cost = 50;
                         break;
                     case 1:

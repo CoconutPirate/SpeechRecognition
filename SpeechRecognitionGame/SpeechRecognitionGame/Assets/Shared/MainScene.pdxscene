@@ -70,6 +70,12 @@ Hierarchy:
                             Component: TransformComponent.Key
                         -   Entity: {Id: 7a9706cf-f86f-461e-beb1-1850860c4340}
                             Component: TransformComponent.Key
+                        -   Entity: {Id: 7b6ec279-f935-4b01-b89c-2f40959e88d5}
+                            Component: TransformComponent.Key
+                        -   Entity: {Id: 9a18add0-3eaf-4cad-82e5-86c400963b7d}
+                            Component: TransformComponent.Key
+                        -   Entity: {Id: 83fc3246-5fa1-4d2c-9fe0-602ab04c1e7a}
+                            Component: TransformComponent.Key
             Id: 45e832a2-1f1d-4b13-9b25-6a7ddf60bb9a
         -   Name: UI
             Components:
@@ -88,6 +94,22 @@ Hierarchy:
                     Scale: {X: 1, Y: 1, Z: 1}
                     Children: []
             Id: 7a9706cf-f86f-461e-beb1-1850860c4340
+        -   Name: Mine
+            Components:
+                SpriteComponent.Key:
+                    SpriteProvider: !SpriteFromSheet
+                        Sheet: 3a8430a0-1d48-4928-8fdf-96ba35fc2cad:Mine
+                    Color: {R: 255, G: 255, B: 255, A: 255}
+                ScriptComponent.Key:
+                    Scripts:
+                        - !SpeechRecognitionGame.MineController,SpeechRecognitionGame.Game
+                            Id: 327dbfda-cf7b-4a3d-9d16-b32504c411cf
+                TransformComponent.Key:
+                    Position: {X: 20, Y: 2.5, Z: 0}
+                    Rotation: {W: 1, X: 0, Y: 0, Z: 0}
+                    Scale: {X: 1, Y: 1, Z: 1}
+                    Children: []
+            Id: 7b6ec279-f935-4b01-b89c-2f40959e88d5
         -   Name: Castle
             Components:
                 SpriteComponent.Key:
@@ -113,6 +135,17 @@ Hierarchy:
                     Scale: {X: 1, Y: 1, Z: 1}
                     Children: []
             Id: 7dbc2070-b7ce-457e-905c-1761bca9aa7a
+        -   Name: Defeat
+            Components:
+                BackgroundComponent.Key:
+                    Enabled: false
+                    Texture: 6aabac77-f999-4c26-a8cc-dd798ee7ff66:Defeat
+                TransformComponent.Key:
+                    Position: {X: 0, Y: 0, Z: 0}
+                    Rotation: {W: 1, X: 0, Y: 0, Z: 0}
+                    Scale: {X: 1, Y: 1, Z: 1}
+                    Children: []
+            Id: 83fc3246-5fa1-4d2c-9fe0-602ab04c1e7a
         -   Name: EnemyCastle
             Components:
                 SpriteComponent.Key:
@@ -138,6 +171,17 @@ Hierarchy:
                     Scale: {X: 1, Y: 1, Z: 1}
                     Children: []
             Id: 943450c3-7a21-47c3-8af8-7db39b9be580
+        -   Name: Victory
+            Components:
+                BackgroundComponent.Key:
+                    Enabled: false
+                    Texture: ec7eb4d9-2f4d-4f0c-bb2a-ebb04f6563e9:Victory
+                TransformComponent.Key:
+                    Position: {X: 0, Y: 0, Z: 0}
+                    Rotation: {W: 1, X: 0, Y: 0, Z: 0}
+                    Scale: {X: 1, Y: 1, Z: 1}
+                    Children: []
+            Id: 9a18add0-3eaf-4cad-82e5-86c400963b7d
         -   Name: SwordTemplate
             Components:
                 SpriteComponent.Key:

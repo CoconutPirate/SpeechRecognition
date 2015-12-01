@@ -6,7 +6,7 @@ namespace SpeechRecognitionGame
     {
         protected override void Initialize()
         {
-            GraphicsDeviceManager.IsFullScreen = true;
+            //GraphicsDeviceManager.IsFullScreen = true;
             base.Initialize();
         }
     }

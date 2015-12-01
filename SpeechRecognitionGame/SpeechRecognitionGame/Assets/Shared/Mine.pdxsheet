@@ -1,0 +1,19 @@
+!SpriteSheet
+Id: 3a8430a0-1d48-4928-8fdf-96ba35fc2cad
+SerializedVersion: 1
+Tags: []
+Type: Sprite2D
+ColorKeyColor: {R: 255, G: 0, B: 255, A: 255}
+Format: AsIs
+Alpha: Auto
+Sprites:
+    -   Source: MineBig.png
+        Name: MineIdle0
+        TextureRegion: {X: 0, Y: 0, Width: 512, Height: 512}
+        Center: {X: 0, Y: 0}
+        Borders: {X: 0, Y: 0, Z: 0, W: 0}
+    -   Source: MineBig.png
+        Name: MineIdle1
+        TextureRegion: {X: 512, Y: 0, Width: 512, Height: 512}
+        Center: {X: 0, Y: 0}
+        Borders: {X: 0, Y: 0, Z: 0, W: 0}

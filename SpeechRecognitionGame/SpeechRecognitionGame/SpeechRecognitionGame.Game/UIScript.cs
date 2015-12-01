@@ -62,7 +62,7 @@ namespace SpeechRecognitionGame
                         }
                         index = 0;
                         position = 1.5f;
-                        distance = 18;
+                        distance = 17;
                         cost = 50;
                         break;
                     case "SWORD":

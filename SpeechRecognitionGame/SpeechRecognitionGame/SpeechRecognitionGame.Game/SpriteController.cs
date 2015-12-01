@@ -11,7 +11,7 @@ namespace SpeechRecognitionGame
         protected int workTimer = 0;
         int animationTimer = 0;
         public int liveTimer = 0;
-        protected float speed = 0.01f;
+        protected float speed = 0.02f;
         public int maxDistance;
 
         public override void Update()

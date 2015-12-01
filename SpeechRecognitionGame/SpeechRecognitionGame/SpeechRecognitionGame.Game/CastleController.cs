@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using SiliconStudio.Core.Mathematics;
 using SiliconStudio.Paradox.Engine;
+using SiliconStudio.Paradox.Extensions;
 using SiliconStudio.Paradox.Graphics;
 using SiliconStudio.Paradox.Rendering.Sprites;
 
@@ -51,6 +52,31 @@ namespace SpeechRecognitionGame
                     Die();
                 }
             }
+            else if (Game.IsRunning && dead)
+            {
+                Defeat();
+            }
+        }
+
+        void Defeat()
+        {
+            SpriteComponent spriteComponent;
+            foreach (Entity entity in SceneSystem.SceneInstance.Scene.GetChildren())
+            {
+                spriteComponent = entity.Components.Get<SpriteComponent>(SpriteComponent.Key);
+                if (spriteComponent != null)
+                {
+                    spriteComponent.Enabled = false;
+                }
+            }
+            Entity ui = (from entities in SceneSystem.SceneInstance where entities.Name == "UI" select entities).FirstOrDefault();
+            ui.Components.Get<UIComponent>(UIComponent.Key).Enabled = false;
+            Entity victory = (from entities in SceneSystem.SceneInstance where entities.Name == "Victory" select entities).FirstOrDefault();
+            Entity defeat = (from entities in SceneSystem.SceneInstance where entities.Name == "Defeat" select entities).FirstOrDefault();
+            if (!victory.Components.Get<BackgroundComponent>(BackgroundComponent.Key).Enabled)
+            {
+                defeat.Components.Get<BackgroundComponent>(BackgroundComponent.Key).Enabled = true;
+            }
         }
 
         void PlayAnimation()
@@ -95,7 +121,7 @@ namespace SpeechRecognitionGame
 
         public void StartWork(int unit, float position, int distance, int cost)
         {
-            if (mode != 2 && gold >= cost && !dead)
+            if (mode == 0 && gold >= cost)
             {
                 ChangeMode(2);
                 gold -= cost;
