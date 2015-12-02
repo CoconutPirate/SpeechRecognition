@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
+using System.Threading;
+using System.Threading.Tasks;
 using Accord.Audio;
 using Accord.Audio.Windows;
 using Accord.DirectSound;
@@ -15,8 +17,138 @@ namespace SpeechRecognition
         private IWindow window;
         public IList<double[]> ListOfPowerSpectrum;
         public IList<int> soundsDetectedIndexes;
+        public int soundsInAtakujCommandAfterCalibration;
+        public int soundsInBronCommandAfterCalibration;
+        public int soundsInIdzCommandAfterCalibration;
 
-        public void ListenForCommands(object sender, EventArgs e)
+        public void StartListeningForCommands(int seconds)
+        {
+            // var taskFactory = new TaskFactory();
+            // taskFactory.StartNew(() => ListenForCommands(this, new EventArgs()));
+            Console.WriteLine("Start saying commands");
+            ListenForCommands(this, new EventArgs(), false);
+
+            Thread.Sleep(TimeSpan.FromSeconds(15));
+            Console.WriteLine("Stop");
+            source.Stop();
+            DetectSounds();
+        }
+
+        public void StartCalibration()
+        {
+            Console.WriteLine("Calibration for atakuj");
+            
+            ListenForCommands(this, new EventArgs(), true);
+            AdjustCommand(ref soundsInAtakujCommandAfterCalibration);
+
+            Console.WriteLine("Calibration for bron");
+            
+            ListenForCommands(this, new EventArgs(), true);
+            AdjustCommand(ref soundsInBronCommandAfterCalibration);
+
+            Console.WriteLine("Calibration for idz");
+
+            ListenForCommands(this, new EventArgs(), true);
+            AdjustCommand(ref soundsInIdzCommandAfterCalibration);
+
+            //  Console.WriteLine("gloski w atakuj {0}", soundsInAtakujCommandAfterCalibration);
+            // Console.WriteLine("gloski w bron {0}", soundsInBronCommandAfterCalibration);
+            //  Console.WriteLine("gloski w idz {0}", soundsInIdzCommandAfterCalibration);
+        }
+
+        public void AdjustCommand(ref int soundsInCommand)
+        {
+            IList<int> soundsDetectedInWords = FindSounds();
+
+            int sum = 0;
+
+            foreach (int sound in soundsDetectedInWords)
+            {
+                sum += sound;
+            }
+
+            soundsInCommand = sum / soundsDetectedInWords.Count;
+            // Console.WriteLine("gloski w komenedzie {0}", soundsInCommand);
+        }
+
+        public void DetectSounds()
+        {
+            IList<int> soundsDetectedInWords = FindSounds();
+
+            //Console.WriteLine(soundsDetectedInWords.Count);
+            //  Console.WriteLine("gloski w atakuj {0}", soundsInAtakujCommandAfterCalibration);
+            // Console.WriteLine("gloski w bron {0}", soundsInBronCommandAfterCalibration);
+            // Console.WriteLine("gloski w idz {0}", soundsInIdzCommandAfterCalibration);
+
+            for (int i = 0; i < soundsDetectedInWords.Count; i++)
+            {
+                int middleOfIdzBron = (soundsInBronCommandAfterCalibration + soundsInIdzCommandAfterCalibration) / 2;
+                int middleOfBronAtakuj = (soundsInAtakujCommandAfterCalibration + soundsInBronCommandAfterCalibration) / 2;
+                if (soundsDetectedInWords[i] <= middleOfIdzBron)
+                {
+                    //  Console.WriteLine(soundsDetectedInWords[i]);
+                    Console.WriteLine("Word nr {0} is Idz", i);
+                }
+                else if (soundsDetectedInWords[i] > middleOfIdzBron && soundsDetectedInWords[i] <= middleOfBronAtakuj)
+                {
+                    //  Console.WriteLine(soundsDetectedInWords[i]);
+                    Console.WriteLine("Word nr {0} is Bron", i);
+                }
+                else if (soundsDetectedInWords[i] > middleOfBronAtakuj)
+                {
+                    // Console.WriteLine(soundsDetectedInWords[i]);
+                    Console.WriteLine("Word nr {0} is Atakuj", i);
+                }
+            }
+
+
+
+            // Sort list and the word with the least amount of sounds is 'Idz', next 'Obrona' and last 'Atak'
+            /*  IList<int> sortList = soundsDetectedInWords.OrderBy(v => v).ToList();
+              Dictionary<int, string> recognizedWords = new Dictionary<int, string>();
+              recognizedWords.Add(sortList[0], "Idz");
+              recognizedWords.Add(sortList[1], "Bron");
+              recognizedWords.Add(sortList[2], "Atakuj");
+
+              Console.WriteLine("Word nr 1 is {0}", recognizedWords[soundsDetectedInWords[0]]);
+              Console.WriteLine("Word nr 2 is {0}", recognizedWords[soundsDetectedInWords[1]]);
+              Console.WriteLine("Word nr 3 is {0}", recognizedWords[soundsDetectedInWords[2]]);*/
+        }
+
+        public IList<int> FindSounds()
+        {
+            IList<int> soundsDetectedInWords = new List<int>();
+
+            int soundsDetectedInWord = 0;
+
+            for (int i = 0; i < soundsDetectedIndexes.Count; i++)
+            {
+                int soundsDetectedInWave = 0;
+                foreach (double value in ListOfPowerSpectrum[soundsDetectedIndexes[i]])
+                {
+                    if (value != 0.0 && value > 1.0E-10)
+                    {
+                        soundsDetectedInWave++;
+                    }
+                }
+
+                soundsDetectedInWord += soundsDetectedInWave;
+
+                // Detect next word when reach the end of loop or following index value is not next to previous one   
+                if ((i + 1) == soundsDetectedIndexes.Count || soundsDetectedIndexes[i + 1] != soundsDetectedIndexes[i] + 1)
+                {
+                    // Console.WriteLine(soundsDetectedInWord);
+                    // It should have at least 10 sounds to be treated as word 
+                    if (soundsDetectedInWord > 150) soundsDetectedInWords.Add(soundsDetectedInWord);
+                    soundsDetectedInWord = 0;
+
+                }
+            }
+
+            return soundsDetectedInWords;
+        }
+
+        public void ListenForCommands(object sender, EventArgs e, bool forCalibration)
         {
             ListOfPowerSpectrum = new List<double[]>();
             soundsDetectedIndexes = new List<int>();
@@ -34,12 +166,19 @@ namespace SpeechRecognition
             source.AudioSourceError += source_AudioSourceError;
 
 
-            Console.WriteLine("Start");
+
             // Start it!
+            Console.WriteLine("Start");
             source.Start();
 
-            //return _listOfFfTedSamples;
+            if (forCalibration)
+            {
+                Thread.Sleep(TimeSpan.FromSeconds(10));
+                Console.WriteLine("Stop");
+                source.Stop();
+            }
         }
+
 
         void source_AudioSourceError(object sender, AudioSourceErrorEventArgs e)
         {
@@ -64,35 +203,23 @@ namespace SpeechRecognition
 
             // Now we can get the power spectrum output and its
             // related frequency vector to plot our spectrometer.
-
             Complex[] channel = signal.GetChannel(0);
-            
-            //Console.WriteLine(channel[0]+" "+channel[1]);
+
 
             double[] power = Accord.Audio.Tools.GetPowerSpectrum(channel);
-            //double[] freqv = Accord.Audio.Tools.GetFrequencyVector(signal.Length, signal.SampleRate);
 
-            //power[0] = 0; // zero DC
-            //float[] g = new float[power.Length];
-            //for (int i = 0; i < power.Length; i++)           
-                //g[i] = (float) power[i];
-                                
+
             ListOfPowerSpectrum.Add(power);
 
             foreach (double value in power)
             {
                 if (value != 0.0 && value > 1.0E-10)
-                { 
+                {
+                    //Console.WriteLine("Index to {0}", ListOfPowerSpectrum.IndexOf(power));
                     soundsDetectedIndexes.Add(ListOfPowerSpectrum.IndexOf(power));
                     break;
                 }
             }
-
-            //// Adjust the zoom according to the horizontal and vertical scrollbars.
-            //chart1.RangeX = new DoubleRange(freqv[0], freqv[freqv.Length - 1] / hScrollBar1.Value);
-            //chart1.RangeY = new DoubleRange(0f, Math.Pow(10, -vScrollBar1.Value));
-
-            //chart1.UpdateWaveform("fft", g);
         }
     }
 }
