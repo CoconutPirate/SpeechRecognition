@@ -76,10 +76,17 @@ Hierarchy:
                             Component: TransformComponent.Key
                         -   Entity: {Id: 83fc3246-5fa1-4d2c-9fe0-602ab04c1e7a}
                             Component: TransformComponent.Key
+                        -   Entity: {Id: e0eccfba-9b5a-4039-8636-87a0ebf519b5}
+                            Component: TransformComponent.Key
+                        -   Entity: {Id: 8c5ae0a5-5136-4a22-81e3-0650592e96df}
+                            Component: TransformComponent.Key
+                        -   Entity: {Id: f61b3329-61af-4648-a3d8-03cd83d734ed}
+                            Component: TransformComponent.Key
             Id: 45e832a2-1f1d-4b13-9b25-6a7ddf60bb9a
         -   Name: UI
             Components:
                 UIComponent.Key:
+                    Enabled: false
                     VirtualResolution: {X: 1280, Y: 720, Z: 1000}
                     VirtualResolutionMode: FixedWidthFixedHeight
                 ScriptComponent.Key:
@@ -146,6 +153,19 @@ Hierarchy:
                     Scale: {X: 1, Y: 1, Z: 1}
                     Children: []
             Id: 83fc3246-5fa1-4d2c-9fe0-602ab04c1e7a
+        -   Name: Paths
+            Components:
+                SpriteComponent.Key:
+                    SpriteProvider: !SpriteFromTexture
+                        Texture: 33596d87-3819-4c14-b4b8-efc6b422a42a:Paths
+                        Center: {X: 0, Y: 0}
+                    Color: {R: 255, G: 255, B: 255, A: 255}
+                TransformComponent.Key:
+                    Position: {X: 20, Y: 0, Z: -10}
+                    Rotation: {W: 1, X: 0, Y: 0, Z: 0}
+                    Scale: {X: 1, Y: 1, Z: 1}
+                    Children: []
+            Id: 8c5ae0a5-5136-4a22-81e3-0650592e96df
         -   Name: EnemyCastle
             Components:
                 SpriteComponent.Key:
@@ -214,6 +234,7 @@ Hierarchy:
             Components:
                 CameraComponent.Key:
                     Projection: Orthographic
+                    OrthographicSize: 7.2
                 ScriptComponent.Key:
                     Scripts:
                         - !SpeechRecognitionGame.CameraController,SpeechRecognitionGame.Game
@@ -238,3 +259,30 @@ Hierarchy:
                     Scale: {X: 1, Y: 1, Z: 1}
                     Children: []
             Id: dcb5fafc-0e16-4127-a9d4-19f05b0bce29
+        -   Name: Background
+            Components:
+                BackgroundComponent.Key:
+                    Texture: 3f82bef5-d833-4fe9-a415-b9d71d42a5f8:Background
+                TransformComponent.Key:
+                    Position: {X: 0, Y: 0, Z: 0}
+                    Rotation: {W: 1, X: 0, Y: 0, Z: 0}
+                    Scale: {X: 1, Y: 1, Z: 1}
+                    Children: []
+            Id: e0eccfba-9b5a-4039-8636-87a0ebf519b5
+        -   Name: Menu
+            Components:
+                UIComponent.Key:
+                    VirtualResolution: {X: 1280, Y: 720, Z: 1000}
+                    VirtualResolutionMode: FixedWidthFixedHeight
+                ScriptComponent.Key:
+                    Scripts:
+                        - !SpeechRecognitionGame.MenuStart,SpeechRecognitionGame.Game
+                            Id: 0b7b6f8f-22cf-4eb2-b11a-c53c7d27614d
+                        - !SpeechRecognitionGame.MenuScript,SpeechRecognitionGame.Game
+                            Id: 28929382-348a-4ae2-859f-4be7d0811b54
+                TransformComponent.Key:
+                    Position: {X: 0, Y: 0, Z: 0}
+                    Rotation: {W: 1, X: 0, Y: 0, Z: 0}
+                    Scale: {X: 1, Y: 1, Z: 1}
+                    Children: []
+            Id: f61b3329-61af-4648-a3d8-03cd83d734ed

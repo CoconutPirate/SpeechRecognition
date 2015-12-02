@@ -8,13 +8,18 @@ namespace SpeechRecognitionGame
     public class EnemyCastleController : CastleController
     {
         Random random = new Random();
+        Entity ui;
 
         public override void Update()
         {
             if (Game.IsRunning && !dead)
             {
                 base.Update();
-                RandomUnit();
+                ui = (from entities in SceneSystem.SceneInstance where entities.Name == "UI" select entities).FirstOrDefault();
+                if(ui.Components.Get<UIComponent>(UIComponent.Key).Enabled)
+                {
+                    RandomUnit();
+                }
             }
             else if (Game.IsRunning && dead)
             {

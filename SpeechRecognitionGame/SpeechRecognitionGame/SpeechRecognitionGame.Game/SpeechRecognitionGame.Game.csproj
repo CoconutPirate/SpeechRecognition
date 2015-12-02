@@ -79,12 +79,14 @@
     <Compile Include="CameraController.cs" />
     <Compile Include="CastleController.cs" />
     <Compile Include="EnemyCastleController.cs" />
+    <Compile Include="MenuStart.cs" />
     <Compile Include="MineController.cs" />
     <Compile Include="PickaxeController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SRGame.cs" />
     <Compile Include="SpriteController.cs" />
     <Compile Include="SwordController.cs" />
+    <Compile Include="MenuScript.cs" />
     <Compile Include="UIScript.cs" />
     <Compile Include="UIStart.cs" />
     <Compile Include="WandController.cs" />

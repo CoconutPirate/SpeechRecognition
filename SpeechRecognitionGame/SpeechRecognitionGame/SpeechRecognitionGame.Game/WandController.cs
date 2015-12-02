@@ -36,7 +36,7 @@ namespace SpeechRecognitionGame
         void SelectSword()
         {
             workTimer++;
-            if (workTimer == 25)
+            if (workTimer == 30)
             {
                 liveTimer++;
                 workTimer = 0;

@@ -1,0 +1,11 @@
+[Router]: Info: Start to listen on port 31244
+[Router]: Info: Client 127.0.0.1:51632 connected, with message ClientRequestServer
+[SiliconStudio.Paradox.EffectCompilerServer:17168]: Info: Process started
+[Router]: Info: Client 127.0.0.1:51634 connected, with message ServiceProvideServer
+[Router]: Info: Client 127.0.0.1:51635 connected, with message ServerStarted
+[SiliconStudio.Paradox.EffectCompilerServer:17168]: Info: GameStudio mode started!
+[Router]: Info: Client 127.0.0.1:51632 disconnected with exception: Nie można odczytać danych z połączenia transportowego: Istniejące połączenie zostało gwałtownie zamknięte przez zdalnego hosta.
+[Router]: Info: Client 127.0.0.1:53065 connected, with message ClientRequestServer
+[Router]: Info: Client 127.0.0.1:53066 connected, with message ServerStarted
+[SiliconStudio.Paradox.EffectCompilerServer:17168]: Info: GameStudio mode started!
+[Router]: Info: Client 127.0.0.1:53065 disconnected with exception: Nie można odczytać danych z połączenia transportowego: Istniejące połączenie zostało gwałtownie zamknięte przez zdalnego hosta.

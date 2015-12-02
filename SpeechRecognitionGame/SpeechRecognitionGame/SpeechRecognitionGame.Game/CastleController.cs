@@ -1,7 +1,9 @@
-﻿using System.Linq;
+﻿using System.Diagnostics;
+using System.Linq;
 using SiliconStudio.Core.Mathematics;
 using SiliconStudio.Paradox.Engine;
 using SiliconStudio.Paradox.Extensions;
+using SiliconStudio.Paradox.Games;
 using SiliconStudio.Paradox.Graphics;
 using SiliconStudio.Paradox.Rendering.Sprites;
 
@@ -94,7 +96,7 @@ namespace SpeechRecognitionGame
 
         void AddGold()
         {
-            if (goldTimer == 25)
+            if (goldTimer == 30)
             {
                 gold++;
                 goldTimer = 0;
@@ -103,7 +105,7 @@ namespace SpeechRecognitionGame
 
         void StopWork()
         {
-            if (workTimer == 100)
+            if (workTimer == 120)
             {
                 ChangeMode(0);
                 workTimer = 0;

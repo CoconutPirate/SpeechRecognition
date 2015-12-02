@@ -28,7 +28,7 @@ namespace SpeechRecognitionGame
             if (mode == 8)
             {
                 workTimer++;
-                if (workTimer == 25)
+                if (workTimer == 30)
                 {
                     ((CastleController) castle.Get<ScriptComponent>().Scripts[0]).gold += 10;
                     liveTimer++;

@@ -11,35 +11,36 @@ namespace SpeechRecognitionGame
 
         public override void Update()
         {
-            if (Game.IsRunning)
+            if(Game.IsRunning && Entity.Components.Get<UIComponent>(UIComponent.Key).Enabled)
             {
                 castle = (from entities in SceneSystem.SceneInstance where entities.Name == "Castle" select entities).FirstOrDefault();
-                ((TextBlock) Entity.Components.Get<UIComponent>(UIComponent.Key).RootElement.VisualChildren.ElementAt(4)).Text = "Gold: " + ((CastleController) castle.Get<ScriptComponent>(ScriptComponent.Key).Scripts[0]).gold.ToString();
-                ((TextBlock) Entity.Components.Get<UIComponent>(UIComponent.Key).RootElement.VisualChildren.ElementAt(5)).Text = "Units: " + ((CastleController) castle.Get<ScriptComponent>(ScriptComponent.Key).Scripts[0]).units.ToString();
-                ((TextBlock) Entity.Components.Get<UIComponent>(UIComponent.Key).RootElement.VisualChildren.ElementAt(6)).Text = "Pickaxes: " + ((CastleController) castle.Get<ScriptComponent>(ScriptComponent.Key).Scripts[0]).pickaxes.ToString();
-                ((TextBlock) Entity.Components.Get<UIComponent>(UIComponent.Key).RootElement.VisualChildren.ElementAt(7)).Text = "Swords: " + ((CastleController) castle.Get<ScriptComponent>(ScriptComponent.Key).Scripts[0]).swords.ToString();
-                ((TextBlock) Entity.Components.Get<UIComponent>(UIComponent.Key).RootElement.VisualChildren.ElementAt(8)).Text = "BowArrows: " + ((CastleController) castle.Get<ScriptComponent>(ScriptComponent.Key).Scripts[0]).bowArrows.ToString();
-                ((TextBlock) Entity.Components.Get<UIComponent>(UIComponent.Key).RootElement.VisualChildren.ElementAt(9)).Text = "Wands: " + ((CastleController) castle.Get<ScriptComponent>(ScriptComponent.Key).Scripts[0]).wands.ToString();
+                ((TextBlock)Entity.Components.Get<UIComponent>(UIComponent.Key).RootElement.VisualChildren.ElementAt(4)).Text = "Złoto: " + ((CastleController)castle.Get<ScriptComponent>(ScriptComponent.Key).Scripts[0]).gold.ToString();
+                ((TextBlock)Entity.Components.Get<UIComponent>(UIComponent.Key).RootElement.VisualChildren.ElementAt(5)).Text = "Zdrowie: " + ((CastleController)castle.Get<ScriptComponent>(ScriptComponent.Key).Scripts[0]).health.ToString();
+                ((TextBlock)Entity.Components.Get<UIComponent>(UIComponent.Key).RootElement.VisualChildren.ElementAt(6)).Text = "Jednostki: " + ((CastleController)castle.Get<ScriptComponent>(ScriptComponent.Key).Scripts[0]).units.ToString();
+                ((TextBlock)Entity.Components.Get<UIComponent>(UIComponent.Key).RootElement.VisualChildren.ElementAt(7)).Text = "Kilofy: " + ((CastleController)castle.Get<ScriptComponent>(ScriptComponent.Key).Scripts[0]).pickaxes.ToString();
+                ((TextBlock)Entity.Components.Get<UIComponent>(UIComponent.Key).RootElement.VisualChildren.ElementAt(8)).Text = "Miecze: " + ((CastleController)castle.Get<ScriptComponent>(ScriptComponent.Key).Scripts[0]).swords.ToString();
+                ((TextBlock)Entity.Components.Get<UIComponent>(UIComponent.Key).RootElement.VisualChildren.ElementAt(9)).Text = "Łuki: " + ((CastleController)castle.Get<ScriptComponent>(ScriptComponent.Key).Scripts[0]).bowArrows.ToString();
+                ((TextBlock)Entity.Components.Get<UIComponent>(UIComponent.Key).RootElement.VisualChildren.ElementAt(10)).Text = "Różdżki " + ((CastleController)castle.Get<ScriptComponent>(ScriptComponent.Key).Scripts[0]).wands.ToString();
                 //Keyboard Input
-                if (Input.IsKeyReleased(Keys.Escape))
+                if(Input.IsKeyReleased(Keys.Escape))
                 {
-                    ((Game) Game).Exit();
+                    ((Game)Game).Exit();
                 }
-                if (Input.IsKeyReleased(Keys.P))
+                if(Input.IsKeyReleased(Keys.K))
                 {
-                    ProduceUnit("PICKAXE");
+                    ProduceUnit("KILOF");
                 }
-                if (Input.IsKeyReleased(Keys.S))
+                if(Input.IsKeyReleased(Keys.M))
                 {
-                    ProduceUnit("SWORD");
+                    ProduceUnit("MIECZ");
                 }
-                if (Input.IsKeyReleased(Keys.B))
+                if(Input.IsKeyReleased(Keys.L))
                 {
-                    ProduceUnit("BOWARROW");
+                    ProduceUnit("ŁUK");
                 }
-                if (Input.IsKeyReleased(Keys.W))
+                if(Input.IsKeyReleased(Keys.R))
                 {
-                    ProduceUnit("WAND");
+                    ProduceUnit("RÓŻDŻKA");
                 }
             }
         }
@@ -55,7 +56,7 @@ namespace SpeechRecognitionGame
                 int cost;
                 switch (name)
                 {
-                    case "PICKAXE":
+                    case "KILOF":
                         if (((CastleController)castle.Get<ScriptComponent>().Scripts[0]).pickaxes == 3)
                         {
                             return;
@@ -65,19 +66,19 @@ namespace SpeechRecognitionGame
                         distance = 17;
                         cost = 50;
                         break;
-                    case "SWORD":
+                    case "MIECZ":
                         index = 1;
                         position = -1.5f;
                         distance = 37;
                         cost = 100;
                         break;
-                    case "BOWARROW":
+                    case "ŁUK":
                         index = 2;
                         position = 0f;
                         distance = 10;
                         cost = 100;
                         break;
-                    case "WAND":
+                    case "RÓŻDŻKA":
                         index = 3;
                         position = -1.5f;
                         distance = 35;

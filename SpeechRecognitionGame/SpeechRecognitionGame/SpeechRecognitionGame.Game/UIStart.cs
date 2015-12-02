@@ -14,16 +14,17 @@ namespace SpeechRecognitionGame
             //Set buttons to create units
             float width = Entity.Get<UIComponent>().VirtualResolution.X;
             float height = Entity.Get<UIComponent>().VirtualResolution.Y;
-            Button pickaxe = SetupButton("PICKAXE", (height - 100)/height);
-            Button sword = SetupButton("SWORD", (height - 75)/height);
-            Button bowArrow = SetupButton("BOWARROW", (height - 50)/height);
-            Button wand = SetupButton("WAND", (height - 25)/height);
-            TextBlock gold = SetupTextBlock("Gold: 0", 100/width, 0);
-            TextBlock units = SetupTextBlock("Units: 0", 0, 0);
-            TextBlock pickaxes = SetupTextBlock("Pickaxes: 0", 0, 25/height);
-            TextBlock swords = SetupTextBlock("Swords: 0", 0, 50/height);
-            TextBlock bowArrows = SetupTextBlock("BowArrorws: 0", 0, 75/height);
-            TextBlock wands = SetupTextBlock("Wands: 0", 0, 100/height);
+            Button pickaxe = SetupButton("KILOF", (height - 100)/height);
+            Button sword = SetupButton("MIECZ", (height - 75)/height);
+            Button bowArrow = SetupButton("ŁUK", (height - 50)/height);
+            Button wand = SetupButton("RÓŻDŻKA", (height - 25) / height);
+            TextBlock gold = SetupTextBlock("Złoto: 0", 100 / width, 0);
+            TextBlock health = SetupTextBlock("Zdrowie: 1000", 100 / width, 25 / height);
+            TextBlock units = SetupTextBlock("Jednostki: 0", 0, 0);
+            TextBlock pickaxes = SetupTextBlock("Kilofy: 0", 0, 25/height);
+            TextBlock swords = SetupTextBlock("Miecze: 0", 0, 50/height);
+            TextBlock bowArrows = SetupTextBlock("Łuki: 0", 0, 75/height);
+            TextBlock wands = SetupTextBlock("Różdżki: 0", 0, 100/height);
             Entity.Get<UIComponent>().RootElement = new Canvas
             {
                 Children =
@@ -33,11 +34,12 @@ namespace SpeechRecognitionGame
                     bowArrow,
                     wand,
                     gold,
+                    health,
                     units,
                     pickaxes,
                     swords,
                     bowArrows,
-                    wands
+                    wands,
                 }
             };
         }

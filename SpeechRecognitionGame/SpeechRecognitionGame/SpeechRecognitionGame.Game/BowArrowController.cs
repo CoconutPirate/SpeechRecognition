@@ -38,7 +38,7 @@ namespace SpeechRecognitionGame
         bool GetSwords()
         {
             workTimer++;
-            if (workTimer == 25)
+            if (workTimer == 30)
             {
                 liveTimer++;
                 workTimer = 0;

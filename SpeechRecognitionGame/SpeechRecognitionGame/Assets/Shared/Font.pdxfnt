@@ -11,6 +11,8 @@ CharacterSet:
 CharacterRegions:
     -   Start: ' '
         End: "\x7F"
+    -   Start: "Ó"
+        End: "ż"
 AntiAlias: Grayscale
 NoPremultiply: false
 Spacing: 0
